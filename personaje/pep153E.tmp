@@ -1,0 +1,267 @@
+[gd_scene load_steps=9 format=3 uid="uid://bci5y4gbwiwxh"]
+
+[ext_resource type="Texture2D" uid="uid://kxum8666mq7x" path="res://assets/pepe/pepe.png" id="1_m1ebl"]
+[ext_resource type="Script" path="res://personaje/pepe.gd" id="1_vedr3"]
+
+[sub_resource type="Animation" id="Animation_6l273"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/HuesoCuerpo/Cuello/HombroDER/CodoDER:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/HuesoCuerpo/Cuello/HombroIZQ/CodoIZQ:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ftvqa"]
+resource_name = "saludar"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/HuesoCuerpo/Cuello/HombroDER/CodoDER:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -1.0472, -1.5708, -1.0472, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/HuesoCuerpo/Cuello/HombroIZQ/CodoIZQ:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0472, 1.5708, 1.0472, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vuanc"]
+_data = {
+"RESET": SubResource("Animation_6l273"),
+"saludar": SubResource("Animation_ftvqa")
+}
+
+[sub_resource type="Animation" id="Animation_5ei5r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/HuesoCuerpo/Cuello/HombroDER/CodoDER:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/HuesoCuerpo/Cuello/HombroDER:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/HuesoCuerpo/Cuello/HombroIZQ/CodoIZQ:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/HuesoCuerpo/Cuello/HombroIZQ:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_jodyg"]
+resource_name = "hacer la ola"
+length = 8.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/HuesoCuerpo/Cuello/HombroDER/CodoDER:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.523599, 0.0, -0.523599, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/HuesoCuerpo/Cuello/HombroDER:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.523599, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/HuesoCuerpo/Cuello/HombroIZQ/CodoIZQ:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3.66667, 5, 6, 7, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.523599, 0.0, 0.523599, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/HuesoCuerpo/Cuello/HombroIZQ:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(3.66667, 6, 8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.523599, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bl4ss"]
+_data = {
+"RESET": SubResource("Animation_5ei5r"),
+"hacer la ola": SubResource("Animation_jodyg")
+}
+
+[node name="Pepe" type="CharacterBody2D"]
+position = Vector2(439, 99)
+script = ExtResource("1_vedr3")
+
+[node name="Cuerpo" type="Node2D" parent="."]
+
+[node name="BrazoIZQ" type="Polygon2D" parent="Cuerpo"]
+position = Vector2(-268, 76)
+texture = ExtResource("1_m1ebl")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(233.766, 79.3539, 222.293, 100.387, 234.722, 123.811, 342.28, 122.855, 357.099, 101.344, 339.412, 77.9198)
+uv = PackedVector2Array(233.766, 79.3539, 222.293, 100.387, 234.722, 123.811, 342.28, 122.855, 357.099, 101.344, 339.412, 77.9198)
+bones = ["HuesoCuerpo", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroDER", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroDER/BrazoDER", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroDER/BrazoDER/AnteBrazoDER", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroIZQ", PackedFloat32Array(1, 1, 1, 1, 1, 1), "HuesoCuerpo/Cuello/HombroIZQ/BrazoIZQ", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroIZQ/BrazoIZQ/AntebrazoIZQ", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
+
+[node name="AntebrazoDER" type="Polygon2D" parent="Cuerpo"]
+position = Vector2(81, -81)
+texture = ExtResource("1_m1ebl")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(234.722, 233.76, 211.776, 257.183, 228.029, 283.953, 365.226, 282.519, 386.259, 257.661, 368.094, 224.199)
+uv = PackedVector2Array(234.722, 233.76, 211.776, 257.183, 228.029, 283.953, 365.226, 282.519, 386.259, 257.661, 368.094, 224.199)
+bones = ["HuesoCuerpo", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroDER", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroDER/CodoDER", PackedFloat32Array(1, 1, 1, 1, 1, 1), "HuesoCuerpo/Cuello/HombroDER/CodoDER/MunecaDER", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroIZQ", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroIZQ/CodoIZQ", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroIZQ/CodoIZQ/MunecaIZQ", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
+
+[node name="AntebrazoIZQ" type="Polygon2D" parent="Cuerpo"]
+position = Vector2(413, -82)
+scale = Vector2(-1, 1)
+offset = Vector2(200, 0)
+texture = ExtResource("1_m1ebl")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(234.722, 233.76, 211.776, 257.183, 228.029, 283.953, 365.226, 282.519, 386.259, 257.661, 368.094, 224.199)
+uv = PackedVector2Array(234.722, 233.76, 211.776, 257.183, 228.029, 283.953, 365.226, 282.519, 386.259, 257.661, 368.094, 224.199)
+bones = ["HuesoCuerpo", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroDER", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroDER/CodoDER", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroDER/CodoDER/MunecaDER", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroIZQ", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroIZQ/CodoIZQ", PackedFloat32Array(1, 1, 1, 1, 1, 1), "HuesoCuerpo/Cuello/HombroIZQ/CodoIZQ/MunecaIZQ", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
+
+[node name="Cuerpo" type="Polygon2D" parent="Cuerpo"]
+scale = Vector2(1.63621, 1.74808)
+texture = ExtResource("1_m1ebl")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(31.0784, 23.9017, 31.0784, 304.987, 148.675, 304.509, 148.197, 22.9456)
+uv = PackedVector2Array(31.0784, 23.9017, 31.0784, 304.987, 148.675, 304.509, 148.197, 22.9456)
+bones = ["HuesoCuerpo", PackedFloat32Array(1, 1, 1, 1), "HuesoCuerpo/Cuello", PackedFloat32Array(0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroDER", PackedFloat32Array(0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroDER/BrazoDER", PackedFloat32Array(0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroDER/BrazoDER/AnteBrazoDER", PackedFloat32Array(0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroIZQ", PackedFloat32Array(0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroIZQ/BrazoIZQ", PackedFloat32Array(0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroIZQ/BrazoIZQ/AntebrazoIZQ", PackedFloat32Array(0, 0, 0, 0)]
+
+[node name="BrazoDER" type="Polygon2D" parent="Cuerpo"]
+position = Vector2(-217, 78)
+offset = Vector2(200, 0)
+texture = ExtResource("1_m1ebl")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(233.766, 79.3539, 222.293, 100.387, 234.722, 123.811, 342.28, 122.855, 357.099, 101.344, 339.412, 77.9198)
+uv = PackedVector2Array(233.766, 79.3539, 222.293, 100.387, 234.722, 123.811, 342.28, 122.855, 357.099, 101.344, 339.412, 77.9198)
+bones = ["HuesoCuerpo", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroDER", PackedFloat32Array(1, 1, 1, 1, 1, 1), "HuesoCuerpo/Cuello/HombroDER/BrazoDER", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroDER/BrazoDER/AnteBrazoDER", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroIZQ", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroIZQ/BrazoIZQ", PackedFloat32Array(0, 0, 0, 0, 0, 0), "HuesoCuerpo/Cuello/HombroIZQ/BrazoIZQ/AntebrazoIZQ", PackedFloat32Array(0, 0, 0, 0, 0, 0)]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="HuesoCuerpo" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(148, 487)
+rest = Transform2D(1, 0, 0, 1, 148, 487)
+
+[node name="Cuello" type="Bone2D" parent="Skeleton2D/HuesoCuerpo"]
+position = Vector2(-3, -306)
+rest = Transform2D(1, 0, 0, 1, -3, -306)
+
+[node name="HombroDER" type="Bone2D" parent="Skeleton2D/HuesoCuerpo/Cuello"]
+position = Vector2(76, 0)
+rest = Transform2D(1, 0, 0, 1, 76, 0)
+
+[node name="CodoDER" type="Bone2D" parent="Skeleton2D/HuesoCuerpo/Cuello/HombroDER"]
+position = Vector2(96, -2)
+rest = Transform2D(1, 0, 0, 1, 96, -2)
+
+[node name="MunecaDER" type="Bone2D" parent="Skeleton2D/HuesoCuerpo/Cuello/HombroDER/CodoDER"]
+position = Vector2(98, 1)
+rest = Transform2D(1, 0, 0, 1, 98, 1)
+
+[node name="HombroIZQ" type="Bone2D" parent="Skeleton2D/HuesoCuerpo/Cuello"]
+position = Vector2(-74, -3)
+rest = Transform2D(1, 0, 0, 1, -74, -3)
+
+[node name="CodoIZQ" type="Bone2D" parent="Skeleton2D/HuesoCuerpo/Cuello/HombroIZQ"]
+position = Vector2(-97, -1)
+rest = Transform2D(1, 0, 0, 1, -97, -1)
+
+[node name="MunecaIZQ" type="Bone2D" parent="Skeleton2D/HuesoCuerpo/Cuello/HombroIZQ/CodoIZQ"]
+position = Vector2(-95, 1)
+rest = Transform2D(1, 0, 0, 1, -95, 1)
+
+[node name="Saludo" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vuanc")
+}
+
+[node name="Celebrar" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_bl4ss")
+}
