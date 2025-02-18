@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ct8vy087n4v6y"]
+[gd_scene load_steps=12 format=3 uid="uid://ct8vy087n4v6y"]
 
 [ext_resource type="Texture2D" uid="uid://fgdtlpry732c" path="res://assets/pepe/brazoDER.png" id="1_kcx11"]
 [ext_resource type="Script" path="res://personaje/pepe_nuevo.gd" id="1_toxys"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://biinc6x77cimt" path="res://assets/pepe/brazoIZQ.png" id="3_ftlgj"]
 [ext_resource type="Texture2D" uid="uid://cv784hcnomljs" path="res://assets/pepe/AnteBrazoIZQ.png" id="4_2p8ox"]
 [ext_resource type="Texture2D" uid="uid://cmy5e6heycjt" path="res://assets/pepe/cuerpo.png" id="5_1jj3a"]
+[ext_resource type="Texture2D" uid="uid://jt3wg3hw4btk" path="res://assets/pepe/AntebrazoCerradoDER.png" id="7_a5k2b"]
+[ext_resource type="Texture2D" uid="uid://c34medn6md0yi" path="res://assets/pepe/AntebrazoCerradoIZQ.png" id="8_jydej"]
 
 [sub_resource type="SkeletonModification2DCCDIK" id="SkeletonModification2DCCDIK_rv8x6"]
 target_nodepath = NodePath("../../../IK targets/ManoDER_target")
@@ -68,29 +70,29 @@ script = ExtResource("1_toxys")
 
 [node name="BrazoDer" type="Sprite2D" parent="container/cuerpo"]
 position = Vector2(658, 281)
-rotation = -0.674208
+rotation = -0.67421
 scale = Vector2(1, 1)
 texture = ExtResource("1_kcx11")
 offset = Vector2(46, 0)
 
 [node name="AnteBrazoDer" type="Sprite2D" parent="container/cuerpo"]
-position = Vector2(728.429, 229.758)
-rotation = -0.674208
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(728.426, 229.76)
+rotation = -0.67421
+scale = Vector2(0.999998, 0.999998)
 texture = ExtResource("2_bisvp")
 offset = Vector2(69, -7)
 
 [node name="BrazoIzq" type="Sprite2D" parent="container/cuerpo"]
 position = Vector2(540, 281)
-rotation = 0.578378
+rotation = 0.578382
 scale = Vector2(1, 1)
 texture = ExtResource("3_ftlgj")
 offset = Vector2(-47, 0)
 
 [node name="AnteBrazoIzq" type="Sprite2D" parent="container/cuerpo"]
-position = Vector2(462.388, 234.062)
-rotation = 0.578378
-scale = Vector2(0.999996, 0.999996)
+position = Vector2(462.39, 234.063)
+rotation = 0.578382
+scale = Vector2(0.999999, 0.999999)
 texture = ExtResource("4_2p8ox")
 offset = Vector2(-65, -7)
 
@@ -99,6 +101,14 @@ position = Vector2(596, 286)
 scale = Vector2(1.35, 1.35)
 texture = ExtResource("5_1jj3a")
 offset = Vector2(2.2222, 60.7407)
+
+[node name="AntebrazoCerradoDer" type="Sprite2D" parent="container/cuerpo"]
+position = Vector2(193, 447)
+texture = ExtResource("7_a5k2b")
+
+[node name="AntebrazoCerradoIzq" type="Sprite2D" parent="container/cuerpo"]
+position = Vector2(191, 400)
+texture = ExtResource("8_jydej")
 
 [node name="huesos" type="Node2D" parent="container"]
 
@@ -116,7 +126,6 @@ rest = Transform2D(1, 0, 0, 1, -2, -242)
 [node name="HombroDER" type="Bone2D" parent="container/huesos/Skeleton2D/HuesoCuerpo/Cuello"]
 position = Vector2(62, -1)
 rotation = -1.63225
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, 62, -1)
 metadata/_local_pose_override_enabled_ = true
 
@@ -140,7 +149,6 @@ rest = Transform2D(1, 0, 0, 1, 94, 2)
 [node name="HombroIZQ" type="Bone2D" parent="container/huesos/Skeleton2D/HuesoCuerpo/Cuello"]
 position = Vector2(-56, -1)
 rotation = 1.70964
-scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -56, -1)
 metadata/_local_pose_override_enabled_ = true
 
