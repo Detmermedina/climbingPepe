@@ -1,5 +1,14 @@
 extends Node2D
 
+@onready var antebrazo_der = $container/cuerpo/AnteBrazoDer  # Ajusta la ruta al nodo correcto
+@export var textura_normal_der: Texture2D = preload("res://assets/pepe/AnteBrazoDER.png")
+@export var textura_agarrando_der: Texture2D = preload("res://assets/pepe/AntebrazoCerradoDER.png")
+
+@onready var antebrazo_izq = $container/cuerpo/AnteBrazoIzq  # Ajusta la ruta al nodo correcto
+@export var textura_normal_izq: Texture2D = preload("res://assets/pepe/AnteBrazoIZQ.png")
+@export var textura_agarrando_izq: Texture2D = preload("res://assets/pepe/AntebrazoCerradoIZQ.png")
+
+
 @export var speed: float = 5000.0  # Velocidad de movimiento de las manos
 @onready var mano_izq = $"IK targets/ManoIZQ_target"
 @onready var mano_der = $"IK targets/ManoDER_target"
@@ -17,7 +26,17 @@ func _ready():
 	tween_izq = create_tween()
 	tween_der = create_tween()
 
-func _process(delta):
+func _process(delta):	
+	# Detectar cuando se presiona la acción "agarrar_der" o "agarrar_izq"
+	if Input.is_action_pressed("agarrar_der"):
+		antebrazo_der.texture = textura_agarrando_der  # Cambia la textura
+	else:
+		antebrazo_der.texture = textura_normal_der  # Vuelve a la textura original
+	if Input.is_action_pressed("agarrar_izq"):
+		antebrazo_izq.texture = textura_agarrando_izq  # Cambia la textura
+	else:
+		antebrazo_izq.texture = textura_normal_izq  # Vuelve a la textura original
+	
 	var move_izq = Vector2.ZERO
 	var move_der = Vector2.ZERO
 
