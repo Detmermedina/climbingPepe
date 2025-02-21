@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://cfh818c4qff5e"]
+
+[ext_resource type="FontFile" uid="uid://bidivll5qqrk" path="res://paneles/MaldiniBold.ttf" id="1_30xwk"]
+[ext_resource type="Script" path="res://paneles/panel_menuprincipal/menu_principal.gd" id="1_myjg2"]
+
+[sub_resource type="Theme" id="Theme_pmavv"]
+
+[node name="MenuPrincipal" type="CanvasLayer"]
+script = ExtResource("1_myjg2")
+
+[node name="MenuPrincipalPanel" type="Panel" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+size_flags_stretch_ratio = 1.17
+theme = SubResource("Theme_pmavv")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuPrincipalPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -194.0
+offset_top = -114.0
+offset_right = 198.0
+offset_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+alignment = 1
+
+[node name="ButtonAltura" type="Button" parent="MenuPrincipalPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_30xwk")
+theme_override_font_sizes/font_size = 50
+text = "Altura
+"
+
+[node name="ButtonTiempo" type="Button" parent="MenuPrincipalPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_30xwk")
+theme_override_font_sizes/font_size = 50
+text = "Tiempo"
+
+[node name="ButtonSalir" type="Button" parent="MenuPrincipalPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_30xwk")
+theme_override_font_sizes/font_size = 50
+text = "Salir"
+
+[node name="NombreJuego" type="Label" parent="."]
+anchors_preset = -1
+anchor_left = 0.505
+anchor_top = 0.06
+anchor_right = 0.54
+anchor_bottom = 1.0
+offset_left = -311.76
+offset_top = 0.120003
+offset_right = 310.92
+offset_bottom = -494.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_30xwk")
+theme_override_font_sizes/font_size = 120
+text = "Climbing Pepe"
+
+[connection signal="pressed" from="MenuPrincipalPanel/VBoxContainer/ButtonAltura" to="." method="_on_button_altura_pressed"]
+[connection signal="pressed" from="MenuPrincipalPanel/VBoxContainer/ButtonTiempo" to="." method="_on_button_tiempo_pressed"]
+[connection signal="pressed" from="MenuPrincipalPanel/VBoxContainer/ButtonSalir" to="." method="_on_button_salir_pressed"]
