@@ -1,3 +1,87 @@
-[gd_scene format=3 uid="uid://cbdkc5138thfr"]
+[gd_scene load_steps=6 format=3 uid="uid://cbdkc5138thfr"]
 
-[node name="PanelEsc" type="Node2D"]
+[ext_resource type="FontFile" uid="uid://bidivll5qqrk" path="res://paneles/MaldiniBold.ttf" id="1_xueke"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5n2o"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cuqcf"]
+bg_color = Color(0, 0.737255, 0.176471, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kmqtc"]
+bg_color = Color(0, 0.572549, 0.631373, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_14smq"]
+bg_color = Color(0, 0.611765, 0.172549, 1)
+
+[node name="SalirMenu" type="CanvasLayer"]
+
+[node name="SalirPanel" type="Panel" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -402.0
+offset_top = -126.0
+offset_right = 353.0
+offset_bottom = 124.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_v5n2o")
+
+[node name="TextoSalir" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -231.0
+offset_top = -120.0
+offset_right = 181.0
+offset_bottom = -53.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_xueke")
+theme_override_font_sizes/font_size = 50
+text = "¿Seguro desea salir?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BotonSalirEscritorio" type="Button" parent="."]
+offset_left = 216.0
+offset_top = 329.0
+offset_right = 518.0
+offset_bottom = 392.0
+theme_override_fonts/font = ExtResource("1_xueke")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_cuqcf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kmqtc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_14smq")
+text = "Salir al Menú"
+
+[node name="BotonSalirMenu" type="Button" parent="."]
+offset_left = 559.0
+offset_top = 328.0
+offset_right = 913.0
+offset_bottom = 391.0
+theme_override_fonts/font = ExtResource("1_xueke")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_cuqcf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kmqtc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_14smq")
+text = "Salir al Escritorio"
+
+[node name="BotonX" type="Button" parent="."]
+offset_left = 888.0
+offset_top = 206.0
+offset_right = 923.0
+offset_bottom = 241.0
+theme_override_fonts/font = ExtResource("1_xueke")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_cuqcf")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_kmqtc")
+theme_override_styles/normal = SubResource("StyleBoxFlat_14smq")
+text = "X"

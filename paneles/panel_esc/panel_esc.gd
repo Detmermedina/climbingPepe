@@ -1,11 +1,13 @@
-extends Node
+extends Control
 
+# Botón "Salir al Menú"
+func _on_button_salir_menu_pressed():
+	get_tree().change_scene_to_file("res://paneles/panel_menuprincipal/menu_principal.tscn")  
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+# Botón "Salir al Escritorio"
+func _on_button_salir_escritorio_pressed():
+	get_tree().quit()  # Cierra el juego
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+# Botón "X" para cerrar el menú
+func _on_button_cerrar_pressed():
+	queue_free()  # Elimina la instancia del menú de confirmación
