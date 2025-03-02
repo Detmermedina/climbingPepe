@@ -13,3 +13,7 @@ func _on_boton_salir_escritorio_pressed() -> void:
 func _on_boton_salir_menu_pressed() -> void:
 	get_tree().quit() # Replace with function body.
 	
+
+
+func _on_boton_x_pressed() -> void:
+	queue_free()# Replace with function body.

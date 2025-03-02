@@ -7,12 +7,12 @@
 
 [sub_resource type="Theme" id="Theme_pmavv"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a60mc"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_un6j2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pk2uy"]
 bg_color = Color(0.413968, 0.42682, 0.832749, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f2hs2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8wcu0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5xwao"]
 bg_color = Color(0.415686, 0.427451, 0.831373, 1)
@@ -66,7 +66,7 @@ alignment = 1
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_30xwk")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/pressed = SubResource("StyleBoxFlat_a60mc")
+theme_override_styles/hover = SubResource("StyleBoxFlat_un6j2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_pk2uy")
 text = "Modo Altura
 "
@@ -75,7 +75,7 @@ text = "Modo Altura
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_30xwk")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/pressed = SubResource("StyleBoxFlat_f2hs2")
+theme_override_styles/hover = SubResource("StyleBoxFlat_8wcu0")
 theme_override_styles/normal = SubResource("StyleBoxFlat_5xwao")
 text = "Modo Tiempo"
 

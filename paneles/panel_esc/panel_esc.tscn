@@ -99,3 +99,4 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="SalirPanel/HBoxContainer/BotonSalirEscritorio" to="." method="_on_boton_salir_escritorio_pressed"]
 [connection signal="pressed" from="SalirPanel/HBoxContainer/BotonSalirMenu" to="." method="_on_boton_salir_menu_pressed"]
+[connection signal="pressed" from="SalirPanel/BoxContainer/BotonX" to="." method="_on_boton_x_pressed"]

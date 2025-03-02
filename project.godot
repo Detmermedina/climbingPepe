@@ -15,6 +15,10 @@ run/main_scene="res://mapa/nivel1/nivel1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EscMenu="*res://esc_menu.gd"
+
 [input]
 
 move_left_izq={

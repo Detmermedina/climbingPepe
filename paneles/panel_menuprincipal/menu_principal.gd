@@ -16,7 +16,7 @@ func _on_button_altura_pressed() -> void:
 
 
 func _on_button_tiempo_pressed() -> void:
-	get_tree().change_scene_to_file("res://mapa/nivel 2/nivel2.tscn")
+	get_tree().change_scene_to_file("res://mapa/nivel2/nivel2.tscn")
 
 
 func _on_button_salir_pressed() -> void:
