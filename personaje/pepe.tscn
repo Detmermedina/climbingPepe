@@ -85,8 +85,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vuanc"]
 _data = {
-"RESET": SubResource("Animation_6l273"),
-"saludar": SubResource("Animation_ftvqa")
+&"RESET": SubResource("Animation_6l273"),
+&"saludar": SubResource("Animation_ftvqa")
 }
 
 [sub_resource type="Animation" id="Animation_5ei5r"]
@@ -194,8 +194,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bl4ss"]
 _data = {
-"RESET": SubResource("Animation_5ei5r"),
-"hacer la ola": SubResource("Animation_jodyg")
+&"RESET": SubResource("Animation_5ei5r"),
+&"hacer la ola": SubResource("Animation_jodyg")
 }
 
 [node name="Pepe" type="CharacterBody2D"]

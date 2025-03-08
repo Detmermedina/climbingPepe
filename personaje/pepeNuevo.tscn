@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://ct8vy087n4v6y"]
 
 [ext_resource type="Texture2D" uid="uid://fgdtlpry732c" path="res://assets/pepe/brazoDER.png" id="1_kcx11"]
-[ext_resource type="Script" path="res://personaje/pepe_nuevo.gd" id="1_toxys"]
+[ext_resource type="Script" uid="uid://b2385pici04iu" path="res://personaje/pepe_nuevo.gd" id="1_toxys"]
 [ext_resource type="Texture2D" uid="uid://cgisqiiqpx2w1" path="res://assets/pepe/AnteBrazoDER.png" id="2_bisvp"]
 [ext_resource type="Texture2D" uid="uid://biinc6x77cimt" path="res://assets/pepe/brazoIZQ.png" id="3_ftlgj"]
 [ext_resource type="Texture2D" uid="uid://cv784hcnomljs" path="res://assets/pepe/AnteBrazoIZQ.png" id="4_2p8ox"]
@@ -15,8 +15,8 @@ joint_data/0/bone_index = 2
 joint_data/0/bone2d_node = NodePath("HuesoCuerpo/Cuello/HombroDER")
 joint_data/0/rotate_from_joint = false
 joint_data/0/enable_constraint = true
-joint_data/0/constraint_angle_min = -93.521
-joint_data/0/constraint_angle_max = 90.665
+joint_data/0/constraint_angle_min = 360.0
+joint_data/0/constraint_angle_max = 360.0
 joint_data/0/constraint_angle_invert = true
 joint_data/0/constraint_in_localspace = true
 joint_data/0/editor_draw_gizmo = true
@@ -24,8 +24,8 @@ joint_data/1/bone_index = 3
 joint_data/1/bone2d_node = NodePath("HuesoCuerpo/Cuello/HombroDER/CodoDER")
 joint_data/1/rotate_from_joint = false
 joint_data/1/enable_constraint = true
-joint_data/1/constraint_angle_min = 0.0
-joint_data/1/constraint_angle_max = 226.903
+joint_data/1/constraint_angle_min = 360.0
+joint_data/1/constraint_angle_max = 360.0
 joint_data/1/constraint_angle_invert = true
 joint_data/1/constraint_in_localspace = true
 joint_data/1/editor_draw_gizmo = true
@@ -38,8 +38,8 @@ joint_data/0/bone_index = 5
 joint_data/0/bone2d_node = NodePath("HuesoCuerpo/Cuello/HombroIZQ")
 joint_data/0/rotate_from_joint = false
 joint_data/0/enable_constraint = true
-joint_data/0/constraint_angle_min = -90.59
-joint_data/0/constraint_angle_max = -262.045
+joint_data/0/constraint_angle_min = 360.0
+joint_data/0/constraint_angle_max = 360.0
 joint_data/0/constraint_angle_invert = true
 joint_data/0/constraint_in_localspace = true
 joint_data/0/editor_draw_gizmo = true
@@ -47,9 +47,9 @@ joint_data/1/bone_index = 6
 joint_data/1/bone2d_node = NodePath("HuesoCuerpo/Cuello/HombroIZQ/CodoIZQ")
 joint_data/1/rotate_from_joint = false
 joint_data/1/enable_constraint = true
-joint_data/1/constraint_angle_min = 0.0
-joint_data/1/constraint_angle_max = 120.788
-joint_data/1/constraint_angle_invert = false
+joint_data/1/constraint_angle_min = -360.0
+joint_data/1/constraint_angle_max = -360.0
+joint_data/1/constraint_angle_invert = true
 joint_data/1/constraint_in_localspace = true
 joint_data/1/editor_draw_gizmo = true
 
@@ -68,29 +68,29 @@ script = ExtResource("1_toxys")
 
 [node name="BrazoDer" type="Sprite2D" parent="container/cuerpo"]
 position = Vector2(658, 281)
-rotation = -0.576639
+rotation = -0.674283
 scale = Vector2(1, 1)
 texture = ExtResource("1_kcx11")
 offset = Vector2(46, 0)
 
 [node name="AnteBrazoDer" type="Sprite2D" parent="container/cuerpo"]
-position = Vector2(733.082, 236.865)
-rotation = -0.754174
-scale = Vector2(0.999998, 0.999998)
+position = Vector2(728.429, 229.753)
+rotation = -0.674173
+scale = Vector2(0.999883, 0.999883)
 texture = ExtResource("2_bisvp")
 offset = Vector2(69, -7)
 
 [node name="BrazoIzq" type="Sprite2D" parent="container/cuerpo"]
 position = Vector2(540, 281)
-rotation = 0.418974
-scale = Vector2(0.999999, 0.999999)
+rotation = 0.877215
+scale = Vector2(0.999969, 0.999969)
 texture = ExtResource("3_ftlgj")
 offset = Vector2(-47, 0)
 
 [node name="AnteBrazoIzq" type="Sprite2D" parent="container/cuerpo"]
-position = Vector2(455.923, 246.978)
-rotation = 0.661692
-scale = Vector2(1, 1)
+position = Vector2(479.622, 213.276)
+rotation = 0.44545
+scale = Vector2(0.999957, 0.999957)
 texture = ExtResource("4_2p8ox")
 offset = Vector2(-65, -7)
 
@@ -157,7 +157,7 @@ metadata/_local_pose_override_enabled_ = true
 remote_path = NodePath("../../../../../../../cuerpo/AnteBrazoIzq")
 
 [node name="MunecaIZQ" type="Bone2D" parent="container/huesos/Skeleton2D/HuesoCuerpo/Cuello/HombroIZQ/CodoIZQ"]
-position = Vector2(-170.686, 2.68172)
+position = Vector2(-112.592, 4.69171)
 rotation = -0.578382
 scale = Vector2(1, 1)
 rest = Transform2D(1, 0, 0, 1, -95, 1)
@@ -168,4 +168,4 @@ rest = Transform2D(1, 0, 0, 1, -95, 1)
 position = Vector2(812, 166)
 
 [node name="ManoIZQ_target" type="Node2D" parent="IK targets"]
-position = Vector2(318, 143)
+position = Vector2(376, 169)

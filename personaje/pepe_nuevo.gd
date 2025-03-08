@@ -3,7 +3,7 @@ extends Node2D
 # Referencias a las texturas de los antebrazos
 @onready var antebrazo_der = $container/cuerpo/AnteBrazoDer  
 @export var textura_normal_der: Texture2D = preload("res://assets/pepe/AnteBrazoDER.png")
-@export var textura_agarrando_der: Texture2D = preload("res://assets/pepe/AntebrazoCerradoDER.png")
+@export var textura_agarrando_der: Texture2D = preload("res://assets/pepe/AnteBrazoCerradoDER.png")
 
 @onready var antebrazo_izq = $container/cuerpo/AnteBrazoIzq  
 @export var textura_normal_izq: Texture2D = preload("res://assets/pepe/AnteBrazoIZQ.png")
@@ -22,6 +22,9 @@ var tween_der: Tween
 var agarrado_izq = false
 var agarrado_der = false
 
+# Distancia máxima permitida entre el hombro y el target (ajusta según el tamaño del personaje)
+const MAX_DISTANCIA = 43.0  # Ajusta este valor según necesites
+
 # Referencia al TileMap (Asegúrate de que el nombre es correcto en la jerarquía)
 @onready var tilemap = get_node("/root/Nivel1/Fondo/TileMap2(rocas)")  # Ajusta si es necesario
 
@@ -38,7 +41,45 @@ func _ready():
 	tween_izq = create_tween()
 	tween_der = create_tween()
 
-func _process(delta):    
+	# Crear indicadores visuales para los targets
+	crear_indicador(mano_izq)
+	crear_indicador(mano_der)
+
+func crear_indicador(target):
+	if target:
+		var indicador = Sprite2D.new()
+		indicador.texture = load("res://icon.svg")  # Usa una textura o círculo
+		indicador.modulate = Color(0, 1, 0)  # Verde
+		indicador.scale = Vector2(0.2, 0.2)  # Tamaño más pequeño
+		target.add_child(indicador)
+		
+		
+
+func _process(delta):
+	# Obtener los nodos de los hombros
+	var hombro_izq = get_node_or_null("container/huesos/Skeleton2D/HuesoCuerpo/Cuello/HombroIZQ")
+	var hombro_der = get_node_or_null("container/huesos/Skeleton2D/HuesoCuerpo/Cuello/HombroDER")
+
+	# Si alguno de los hombros no existe, salir del proceso para evitar errores
+	if not hombro_izq or not hombro_der:
+		print("⚠️ Error: No se encontró HombroIZQ o HombroDER en la jerarquía")
+		return  
+
+	# Obtener las posiciones de los hombros
+	var hombro_izq_pos = hombro_izq.global_position
+	var hombro_der_pos = hombro_der.global_position
+
+	# Restricción circular para el target izquierdo
+	var direccion_izq = (mano_izq.global_position - hombro_izq_pos)
+	if direccion_izq.length() > MAX_DISTANCIA:
+		mano_izq.global_position = hombro_izq_pos + direccion_izq.normalized() * MAX_DISTANCIA
+
+# Restricción circular para el target derecho
+	var direccion_der = (mano_der.global_position - hombro_der_pos)
+	if direccion_der.length() > MAX_DISTANCIA:
+		mano_der.global_position = hombro_der_pos + direccion_der.normalized() * MAX_DISTANCIA
+	
+	
 	# Detectar cuando se presiona la acción "agarrar_der" o "agarrar_izq"
 	if Input.is_action_pressed("agarrar_der") and es_tile_de_agarre(mano_der.global_position):
 		agarrado_der = true
@@ -97,6 +138,15 @@ func _process(delta):
 	tween_izq.tween_property(mano_izq, "position", mano_izq.position + move_izq, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 	tween_der.tween_property(mano_der, "position", mano_der.position + move_der, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 
+	queue_redraw()  # Para actualizar el dibujo de los círculos
+
+func _draw():
+	# Dibuja un círculo verde en los targets de las manos
+	if mano_izq:
+		draw_circle(mano_izq.position, 10, Color(0, 1, 0))
+	if mano_der:
+		draw_circle(mano_der.position, 10, Color(0, 1, 0))
+
 # Función para verificar si un tile es de agarre
 func es_tile_de_agarre(posicion_global):
 	if not tilemap:
@@ -104,8 +154,11 @@ func es_tile_de_agarre(posicion_global):
 		return false
 	
 	var tile_pos = tilemap.local_to_map(posicion_global)  # Convertir la posición global a coordenadas del TileMap
-	var tile_data = tilemap.get_cell_tile_data(0, tile_pos)  # Obtener datos del tile en la capa 0
 	
-	if tile_data and tile_data.get_custom_data("Agarres") == true:  # Usamos "Agarres" con mayúscula
-		return true  # Es un tile de agarre
+	# Revisar todas las capas del TileMap en busca del tile de agarre
+	for layer in range(tilemap.get_layers_count()):
+		var tile_data = tilemap.get_cell_tile_data(layer, tile_pos)
+		if tile_data and tile_data.get_custom_data("Agarres") == true:
+			return true  # Es un tile de agarre
+
 	return false
