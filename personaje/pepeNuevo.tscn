@@ -73,28 +73,28 @@ script = ExtResource("1_toxys")
 
 [node name="BrazoDer" type="Sprite2D" parent="container/cuerpo"]
 position = Vector2(58.9305, -33.192)
-rotation = -0.671479
+rotation = -0.590508
 scale = Vector2(1, 1)
 texture = ExtResource("1_kcx11")
 offset = Vector2(46, 0)
 
 [node name="AnteBrazoDer" type="Sprite2D" parent="container/cuerpo"]
-position = Vector2(129.502, -84.2506)
-rotation = -0.676421
-scale = Vector2(0.99984, 0.99984)
+position = Vector2(133.394, -78.3643)
+rotation = -0.742979
+scale = Vector2(0.999997, 0.999997)
 texture = ExtResource("2_bisvp")
 offset = Vector2(69, -7)
 
 [node name="BrazoIzq" type="Sprite2D" parent="container/cuerpo"]
 position = Vector2(-59.0695, -33.192)
-rotation = 0.390735
+rotation = 0.390478
 scale = Vector2(1, 1)
 texture = ExtResource("3_ftlgj")
 offset = Vector2(-47, 0)
 
 [node name="AnteBrazoIzq" type="Sprite2D" parent="container/cuerpo"]
-position = Vector2(-144.074, -64.8268)
-rotation = 0.835634
+position = Vector2(-144.082, -64.805)
+rotation = 0.83582
 scale = Vector2(1, 1)
 texture = ExtResource("4_2p8ox")
 offset = Vector2(-65, -7)
