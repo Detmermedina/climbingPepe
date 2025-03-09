@@ -133,5 +133,5 @@ theme_override_font_sizes/font_size = 34
 text = "34"
 
 [connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonJugarDeNuevo" to="GameOverPanel/HBoxContainer/BotonSalirMenu" method="_on_boton_jugar_de_nuevo_pressed"]
-[connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonSalirMenu" to="GameOverPanel/HBoxContainer/BotonSalirMenu" method="_on_pressed"]
 [connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonSalirMenu" to="GameOverPanel/HBoxContainer/BotonSalirMenu" method="_on_pressed_menu"]
+[connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonSalirMenu" to="GameOverPanel/HBoxContainer/BotonSalirMenu" method="_on_pressed"]
