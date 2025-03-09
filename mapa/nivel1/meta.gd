@@ -4,4 +4,4 @@ extends Area2D
 
 # Se ejecuta cuando un cuerpo entra en la zona
 func _on_body_entered(body):
-	get_tree().change_scene_to_file("res://paneles/panel_gameover/game_over_menu.tscn")  # Cambia de nivelel)
+	get_tree().change_scene_to_file("res://paneles/panel_victoria/panel_victoria.tscn")  # Cambia de nivelel)
