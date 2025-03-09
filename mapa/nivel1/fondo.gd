@@ -1,17 +1,5 @@
-#extends StaticBody2D
+extends StaticBody2D
 
-#@onready var player = $"../personaje"  # Ajusta la ruta si es necesario
-#@onready var collision_shape = $CollisionShape2D  # Asegúrate de que tienes un CollisionShape2D
-
-#var last_player_y: float
-
-#func _ready() -> void:
-#	last_player_y = player.position.y  # Guarda la posición inicial del jugador
-
-#func _process(delta: float) -> void:
-#	if player.position.y < last_player_y:  # Si el jugador sube
-#		var delta_y = last_player_y - player.position.y
-#		position.y -= delta_y  # Mueve el fondo con la colisión
-#		
-#	last_player_y = player.position.y  # Actualiza la posición previa
-#
+func _ready() -> void:
+	# Establecer el tamaño de la ventana en el nivel 1
+	get_tree().root.set_size(Vector2(650, 648))
