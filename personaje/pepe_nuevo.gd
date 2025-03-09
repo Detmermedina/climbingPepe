@@ -26,7 +26,7 @@ var tween_der: Tween
 var agarrado_izq = false
 var agarrado_der = false
 
-# Distancia máxima permitida entre el hombro y el target (ajusta según el tamaño del personaje)
+# Distancia máxima permitida entre el hombro y el target
 const MAX_DISTANCIA = 43.0  
 
 # Referencia al TileMap
@@ -54,7 +54,7 @@ func crear_indicador(target):
 		target.add_child(indicador)
 
 func _process(delta):
-	# Obtener los nodos de los hombros con la nueva jerarquía
+	# Obtener los nodos de los hombros (se asume que son hijos de "cuerpo")
 	var hombro_izq = get_node_or_null("container/cuerpo/huesos/Skeleton2D/HuesoCuerpo/Cuello/HombroIZQ")
 	var hombro_der = get_node_or_null("container/cuerpo/huesos/Skeleton2D/HuesoCuerpo/Cuello/HombroDER")
 
@@ -62,38 +62,37 @@ func _process(delta):
 		print("⚠️ Error: No se encontró HombroIZQ o HombroDER en la jerarquía")
 		return  
 
-	var hombro_izq_pos = hombro_izq.global_position
-	var hombro_der_pos = hombro_der.global_position
-
-	# Restricción circular para el target izquierdo
-	var direccion_izq = (mano_izq.global_position - hombro_izq_pos)
+	# ── Clamping de las manos ──
+	# Siempre limitar la posición de las manos respecto a sus hombros para que no salgan del área establecida
+	var direccion_izq = (mano_izq.global_position - hombro_izq.global_position)
 	if direccion_izq.length() > MAX_DISTANCIA:
-		mano_izq.global_position = hombro_izq_pos + direccion_izq.normalized() * MAX_DISTANCIA
+		mano_izq.global_position = hombro_izq.global_position + direccion_izq.normalized() * MAX_DISTANCIA
 
-	# Restricción circular para el target derecho
-	var direccion_der = (mano_der.global_position - hombro_der_pos)
+	var direccion_der = (mano_der.global_position - hombro_der.global_position)
 	if direccion_der.length() > MAX_DISTANCIA:
-		mano_der.global_position = hombro_der_pos + direccion_der.normalized() * MAX_DISTANCIA
+		mano_der.global_position = hombro_der.global_position + direccion_der.normalized() * MAX_DISTANCIA
 
-	# 📌 NUEVA MECÁNICA: Solo moverse si está agarrado
+	# ── Movimiento del cuerpo ──
+	# Cuando se agarra, el cuerpo se interpola hacia la posición promedio de las manos (que ya se mantienen dentro del área permitida)
 	if agarrado_izq or agarrado_der:
-		# El cuerpo sigue a las manos solo si está agarrado
 		var punto_objetivo = (mano_izq.global_position + mano_der.global_position) / 2
 		cuerpo.global_position = cuerpo.global_position.lerp(punto_objetivo, velocidad_cuerpo * delta)
 
-		# 📌 Hacer que los hombros sigan a las manos
-		hombro_izq.global_position = mano_izq.global_position + Vector2(10, 10)  # Ajusta valores según sea necesario
-		hombro_der.global_position = mano_der.global_position + Vector2(-10, 10)  # Ajusta valores según sea necesario
+		# Actualizar la posición de los hombros de forma relativa al cuerpo
+		if hombro_izq:
+			hombro_izq.position = (mano_izq.global_position + Vector2(10, 10)) - cuerpo.global_position
+		if hombro_der:
+			hombro_der.position = (mano_der.global_position + Vector2(-10, 10)) - cuerpo.global_position
 	else:
-		# 📌 Si no está agarrado, el personaje cae
+		# Si no está agarrado, se aplica gravedad
 		cuerpo.velocity.y += 500 * delta  # Simula gravedad
 		cuerpo.move_and_slide()  # Evita atravesar el suelo
 
-	# 🔥 BONUS: Inclinación del cuerpo según la diferencia de altura
+	# ── Inclinación del cuerpo ──
 	var inclinacion = mano_der.global_position.y - mano_izq.global_position.y
 	cuerpo.rotation = lerp(cuerpo.rotation, inclinacion * 0.01, delta * velocidad_cuerpo)
 
-	# Sistema de agarre
+	# ── Sistema de agarre ──
 	if Input.is_action_pressed("agarrar_der") and es_tile_de_agarre(mano_der.global_position):
 		agarrado_der = true
 	elif Input.is_action_just_released("agarrar_der"):
@@ -104,13 +103,15 @@ func _process(delta):
 	elif Input.is_action_just_released("agarrar_izq"):
 		agarrado_izq = false
 
-	# Cambiar texturas dependiendo del agarre
+	# Actualizar texturas según el estado de agarre
 	antebrazo_der.texture = textura_agarrando_der if agarrado_der else textura_normal_der
 	antebrazo_izq.texture = textura_agarrando_izq if agarrado_izq else textura_normal_izq
 
+	# ── Movimiento de targets por input ──
 	var move_izq = Vector2.ZERO
 	var move_der = Vector2.ZERO
 
+	# Aunque se muevan mediante input, se aplicará el clamping de arriba para evitar salir del área
 	if not agarrado_izq:
 		if Input.is_action_pressed("move_up_izq"):
 			move_izq.y -= 1

@@ -5101,5 +5101,5 @@ one_way_collision = true
 one_way_collision_margin = 128.0
 
 [node name="PepeNuevo" parent="." instance=ExtResource("6_lols4")]
-position = Vector2(203, 527)
+position = Vector2(306, 533)
 scale = Vector2(0.2, 0.2)
