@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://y4ac5tstlwul"]
 
-[ext_resource type="Script" uid="uid://dg5d5an8r06hc" path="res://paneles/panel_gameover/game_over_menu.gd" id="1_k5p3i"]
+[ext_resource type="Script" path="res://paneles/panel_gameover/game_over_menu.gd" id="1_k5p3i"]
 [ext_resource type="FontFile" uid="uid://bidivll5qqrk" path="res://paneles/MaldiniBold.ttf" id="2_a6r0j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wats"]
@@ -23,10 +23,10 @@ bg_color = Color(0, 0.611765, 0.172549, 1)
 [node name="PanelDerrota" type="CanvasLayer"]
 
 [node name="GameOverPanel" type="Panel" parent="."]
-offset_left = 194.0
-offset_top = 93.0
-offset_right = 942.0
-offset_bottom = 519.0
+offset_left = 1.0
+offset_top = 115.0
+offset_right = 635.0
+offset_bottom = 528.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_6wats")
 
 [node name="ResultTable" type="Label" parent="GameOverPanel"]
@@ -42,6 +42,7 @@ offset_right = 180.0
 offset_bottom = -114.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_a6r0j")
 theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_7s7hr")
@@ -51,20 +52,20 @@ vertical_alignment = 1
 
 [node name="Valor" type="Label" parent="GameOverPanel"]
 layout_mode = 0
-offset_left = 349.0
-offset_top = 173.0
-offset_right = 399.0
-offset_bottom = 207.0
+offset_left = 311.0
+offset_top = 164.0
+offset_right = 361.0
+offset_bottom = 198.0
 theme_override_fonts/font = ExtResource("2_a6r0j")
 theme_override_font_sizes/font_size = 35
 text = "34"
 
 [node name="HighScore" type="Label" parent="GameOverPanel"]
 layout_mode = 0
-offset_left = 204.0
-offset_top = 162.0
-offset_right = 347.0
-offset_bottom = 209.0
+offset_left = 152.0
+offset_top = 151.0
+offset_right = 295.0
+offset_bottom = 198.0
 theme_override_fonts/font = ExtResource("2_a6r0j")
 theme_override_font_sizes/font_size = 35
 text = "HighScore:"
@@ -75,7 +76,7 @@ anchors_preset = -1
 anchor_right = 0.14
 offset_left = 1.0
 offset_top = 282.0
-offset_right = 652.0
+offset_right = 550.28
 offset_bottom = 330.0
 grow_vertical = 0
 alignment = 1
@@ -103,10 +104,10 @@ script = ExtResource("1_k5p3i")
 
 [node name="s" type="Label" parent="GameOverPanel"]
 layout_mode = 0
-offset_left = 400.0
-offset_top = 172.0
-offset_right = 528.0
-offset_bottom = 206.0
+offset_left = 359.0
+offset_top = 162.0
+offset_right = 487.0
+offset_bottom = 196.0
 theme_override_fonts/font = ExtResource("2_a6r0j")
 theme_override_font_sizes/font_size = 35
 text = "Segundos"

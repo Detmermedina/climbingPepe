@@ -1,11 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6lxpdfdejt75"]
+[gd_scene load_steps=20 format=3 uid="uid://b6lxpdfdejt75"]
 
+[ext_resource type="Script" path="res://mapa/nivel1/nivel_1.gd" id="1_lj3jx"]
 [ext_resource type="Texture2D" uid="uid://btv4ps5lc4jc6" path="res://mapa/res/background4a.png" id="2_3dx3a"]
 [ext_resource type="Texture2D" uid="uid://cjwjrvwxkqnvg" path="res://mapa/res/background1.png" id="2_p07pc"]
 [ext_resource type="Texture2D" uid="uid://cihilu8jsoakj" path="res://mapa/res/mainlev_build.png" id="3_5sand"]
 [ext_resource type="Texture2D" uid="uid://kys7eshokuvi" path="res://mapa/res/props1.png" id="5_vt0e6"]
-[ext_resource type="Script" uid="uid://c22q5h2t8qf51" path="res://mapa/nivel1/meta.gd" id="6_0embn"]
+[ext_resource type="Script" path="res://mapa/nivel1/meta.gd" id="6_0embn"]
 [ext_resource type="PackedScene" uid="uid://ct8vy087n4v6y" path="res://personaje/pepeNuevo.tscn" id="6_lols4"]
+[ext_resource type="Script" path="res://mapa/nivel1/suelo_game_over.gd" id="7_bnine"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1bm2w"]
 texture = ExtResource("3_5sand")
@@ -5050,19 +5052,23 @@ sources/0 = SubResource("TileSetAtlasSource_d1j2d")
 sources/1 = SubResource("TileSetAtlasSource_rkon6")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ekn2s"]
-size = Vector2(651, 20.5)
+size = Vector2(651, 17.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnine"]
 size = Vector2(594, 14)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0embn"]
+size = Vector2(596, 21)
+
 [node name="Nivel1" type="Node2D"]
+script = ExtResource("1_lj3jx")
 
 [node name="Fondo" type="StaticBody2D" parent="."]
 
 [node name="Sprite2D(Fondo)" type="Sprite2D" parent="Fondo"]
-position = Vector2(307, 82)
+position = Vector2(307, 86.8795)
 rotation = -1.5708
-scale = Vector2(1.20255, 1.00371)
+scale = Vector2(1.19182, 1.00371)
 texture = ExtResource("2_p07pc")
 
 [node name="TileMap(pared fondo)" type="TileMap" parent="Fondo"]
@@ -5099,7 +5105,7 @@ format = 2
 layer_0/tile_data = PackedInt32Array(2621440, 3080193, 1, 2621441, 3145729, 1, 2621442, 3211265, 1, 2621443, 3276801, 1, 2621444, 3342337, 1, 2621445, 3407873, 1, 2621446, 3473409, 1, 2621447, 3538945, 1, 2621448, 3145729, 1, 2621449, 3211265, 1, 2621450, 3276801, 1, 2621451, 3342337, 1, 2621452, 3407873, 1, 2621453, 3473409, 1, 2621454, 3538945, 1, 2621455, 3604481, 1, 2621456, 3670017, 1, 2621457, 3145729, 1, 2621458, 3211265, 1, 2621459, 3276801, 1, 2621460, 3342337, 1, 2621461, 3407873, 1, 2621462, 3473409, 1, 2621463, 3538945, 1, 2621464, 3604481, 1, 2621465, 3145729, 1, 2621466, 3211265, 1, 2621467, 3276801, 1, 2621468, 3342337, 1, 2621469, 3407873, 1, 2621470, 3473409, 1, 2621471, 3145729, 1, 2621472, 3211265, 1, 2621473, 3276801, 1, 2621474, 3342337, 1, 2621475, 3407873, 1, 2621476, 3473409, 1, 2621477, 3538945, 1, 2621478, 3604481, 1, 2621479, 3670017, 1, 2621480, 3735553, 1)
 
 [node name="CollisionSuelo" type="CollisionShape2D" parent="Fondo"]
-position = Vector2(324, 648.25)
+position = Vector2(324, 649.75)
 shape = SubResource("RectangleShape2D_ekn2s")
 one_way_collision = true
 one_way_collision_margin = 128.0
@@ -5115,4 +5121,12 @@ script = ExtResource("6_0embn")
 position = Vector2(326, -8)
 shape = SubResource("RectangleShape2D_bnine")
 
+[node name="SueloGameOver" type="Area2D" parent="." groups=["Player"]]
+script = ExtResource("7_bnine")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SueloGameOver" groups=["Player", "player"]]
+position = Vector2(331, 629)
+shape = SubResource("RectangleShape2D_0embn")
+
 [connection signal="body_entered" from="Meta" to="Meta" method="_on_body_entered"]
+[connection signal="body_entered" from="SueloGameOver" to="SueloGameOver" method="_on_body_entered"]

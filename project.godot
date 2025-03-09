@@ -12,12 +12,16 @@ config_version=5
 
 config/name="Proyecto Juego"
 run/main_scene="res://mapa/nivel1/nivel1.tscn"
-config/features=PackedStringArray("4.4", "Forward Plus")
+config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 EscMenu="*res://esc_menu.gd"
+
+[display]
+
+window/size/viewport_width=650
 
 [dotnet]
 

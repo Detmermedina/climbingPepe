@@ -23,10 +23,9 @@ bg_color = Color(0, 0.611765, 0.172549, 1)
 [node name="PanelVictoria" type="CanvasLayer"]
 
 [node name="GameOverPanel" type="Panel" parent="."]
-offset_left = 196.0
-offset_top = 85.0
-offset_right = 944.0
-offset_bottom = 511.0
+offset_top = 112.0
+offset_right = 634.0
+offset_bottom = 538.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_6wats")
 
 [node name="Victoria" type="Label" parent="GameOverPanel"]
@@ -55,7 +54,7 @@ anchors_preset = -1
 anchor_right = 0.14
 offset_left = -1.0
 offset_top = 343.0
-offset_right = 650.0
+offset_right = 560.0
 offset_bottom = 391.0
 grow_vertical = 0
 alignment = 1
@@ -80,60 +79,58 @@ text = "Salir al Menú"
 script = ExtResource("2_1bgh3")
 
 [node name="Segundos" type="Label" parent="."]
-offset_left = 285.0
-offset_top = 228.0
-offset_right = 809.0
-offset_bottom = 275.0
+offset_left = 52.0
+offset_top = 256.0
+offset_right = 576.0
+offset_bottom = 303.0
 theme_override_fonts/font = ExtResource("1_gvbuy")
 theme_override_font_sizes/font_size = 35
 text = "Has completado el nivel en: "
 
 [node name="HighScore" type="Label" parent="."]
-offset_left = 287.0
-offset_top = 292.0
-offset_right = 430.0
-offset_bottom = 339.0
+offset_left = 91.0
+offset_top = 319.0
+offset_right = 234.0
+offset_bottom = 366.0
 theme_override_fonts/font = ExtResource("1_gvbuy")
 theme_override_font_sizes/font_size = 35
 text = "HighScore:"
 
 [node name="Valor" type="Label" parent="."]
-offset_left = 655.0
-offset_top = 240.0
-offset_right = 705.0
-offset_bottom = 274.0
-theme_override_fonts/font = ExtResource("1_gvbuy")
-theme_override_font_sizes/font_size = 35
-text = "34"
-
-[node name="Valor" type="Label" parent="Valor"]
-layout_mode = 0
-offset_left = -217.0
-offset_top = 63.0
-offset_right = -167.0
-offset_bottom = 97.0
+offset_left = 435.0
+offset_top = 271.0
+offset_right = 485.0
+offset_bottom = 305.0
 theme_override_fonts/font = ExtResource("1_gvbuy")
 theme_override_font_sizes/font_size = 35
 text = "34"
 
 [node name="s" type="Label" parent="."]
-offset_left = 701.0
-offset_top = 240.0
-offset_right = 829.0
-offset_bottom = 274.0
+offset_left = 478.0
+offset_top = 270.0
+offset_right = 606.0
+offset_bottom = 304.0
 theme_override_fonts/font = ExtResource("1_gvbuy")
 theme_override_font_sizes/font_size = 35
 text = "Segundos"
 
-[node name="s" type="Label" parent="s"]
-layout_mode = 0
-offset_left = -223.0
-offset_top = 62.0
-offset_right = -95.0
-offset_bottom = 96.0
+[node name="HighScoreSeg" type="Label" parent="."]
+offset_left = 294.0
+offset_top = 328.0
+offset_right = 429.0
+offset_bottom = 366.0
 theme_override_fonts/font = ExtResource("1_gvbuy")
 theme_override_font_sizes/font_size = 35
 text = "Segundos"
+
+[node name="HighScoreNumSeg" type="Label" parent="."]
+offset_left = 249.0
+offset_top = 333.0
+offset_right = 286.0
+offset_bottom = 366.0
+theme_override_fonts/font = ExtResource("1_gvbuy")
+theme_override_font_sizes/font_size = 34
+text = "34"
 
 [connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonJugarDeNuevo" to="GameOverPanel/HBoxContainer/BotonSalirMenu" method="_on_boton_jugar_de_nuevo_pressed"]
 [connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonSalirMenu" to="GameOverPanel/HBoxContainer/BotonSalirMenu" method="_on_pressed"]
