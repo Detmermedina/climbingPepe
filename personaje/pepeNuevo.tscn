@@ -72,29 +72,30 @@ script = ExtResource("1_toxys")
 [node name="cuerpo" type="CharacterBody2D" parent="container"]
 
 [node name="BrazoDer" type="Sprite2D" parent="container/cuerpo"]
-position = Vector2(58.9305, -33.1918)
-rotation = -0.581664
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(58.9305, -33.192)
+rotation = -0.642608
+scale = Vector2(1, 1)
 texture = ExtResource("1_kcx11")
 offset = Vector2(46, 0)
 
 [node name="AnteBrazoDer" type="Sprite2D" parent="container/cuerpo"]
-position = Vector2(133.79, -77.7037)
-rotation = -0.750128
-scale = Vector2(0.999997, 0.999997)
+position = Vector2(130.941, -82.1816)
+rotation = -0.70034
+scale = Vector2(0.999982, 0.999982)
 texture = ExtResource("2_bisvp")
 offset = Vector2(69, -7)
 
 [node name="BrazoIzq" type="Sprite2D" parent="container/cuerpo"]
-position = Vector2(-59.0695, -33.1918)
-rotation = 0.390029
+position = Vector2(-59.0695, -33.192)
+rotation = 0.390735
+scale = Vector2(1, 1)
 texture = ExtResource("3_ftlgj")
 offset = Vector2(-47, 0)
 
 [node name="AnteBrazoIzq" type="Sprite2D" parent="container/cuerpo"]
-position = Vector2(-144.096, -64.7665)
-rotation = 0.836149
-scale = Vector2(0.999999, 0.999999)
+position = Vector2(-144.074, -64.8268)
+rotation = 0.835634
+scale = Vector2(1, 1)
 texture = ExtResource("4_2p8ox")
 offset = Vector2(-65, -7)
 
