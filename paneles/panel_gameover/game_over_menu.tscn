@@ -1,54 +1,91 @@
-[gd_scene load_steps=7 format=3 uid="uid://y4ac5tstlwul"]
+[gd_scene load_steps=8 format=3 uid="uid://y4ac5tstlwul"]
 
 [ext_resource type="Script" uid="uid://dg5d5an8r06hc" path="res://paneles/panel_gameover/game_over_menu.gd" id="1_k5p3i"]
 [ext_resource type="FontFile" uid="uid://bidivll5qqrk" path="res://paneles/MaldiniBold.ttf" id="2_a6r0j"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d0g1e"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wats"]
 bg_color = Color(0.180392, 0.180392, 0.180392, 1)
 shadow_size = 5
 shadow_offset = Vector2(10, 10)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chddv"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nglrl"]
 bg_color = Color(0, 0.737255, 0.176471, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icqf2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6hf5g"]
 bg_color = Color(0, 0.572549, 0.631373, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3ra5y"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wc15g"]
 bg_color = Color(0, 0.611765, 0.172549, 1)
 
-[node name="GameOverMenu" type="CanvasLayer"]
-script = ExtResource("1_k5p3i")
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7s7hr"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="PanelDerrota" type="CanvasLayer"]
 
 [node name="GameOverPanel" type="Panel" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -125.0
-offset_right = 200.0
-offset_bottom = 125.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_d0g1e")
+offset_left = 194.0
+offset_top = 93.0
+offset_right = 942.0
+offset_bottom = 519.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6wats")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="GameOverPanel"]
-layout_mode = 0
-offset_left = 44.0
-offset_top = 119.0
-offset_right = 366.0
-offset_bottom = 202.0
+[node name="Valor" type="Label" parent="GameOverPanel"]
+offset_left = 349.0
+offset_top = 173.0
+offset_right = 399.0
+offset_bottom = 207.0
+theme_override_fonts/font = ExtResource("2_a6r0j")
+theme_override_font_sizes/font_size = 35
+text = "34"
 
-[node name="RestartButton" type="Button" parent="GameOverPanel/VBoxContainer"]
+[node name="HighScore" type="Label" parent="GameOverPanel"]
+offset_left = 204.0
+offset_top = 162.0
+offset_right = 347.0
+offset_bottom = 209.0
+theme_override_fonts/font = ExtResource("2_a6r0j")
+theme_override_font_sizes/font_size = 35
+text = "HighScore:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.14
+offset_left = 1.0
+offset_top = 282.0
+offset_right = 652.0
+offset_bottom = 330.0
+grow_vertical = 0
+alignment = 1
+
+[node name="BotonSalirEscritorio" type="Button" parent="GameOverPanel/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_a6r0j")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/hover = SubResource("StyleBoxFlat_chddv")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_icqf2")
-theme_override_styles/normal = SubResource("StyleBoxFlat_3ra5y")
-text = "Jugar De Nuevo"
+theme_override_styles/hover = SubResource("StyleBoxFlat_nglrl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6hf5g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wc15g")
+text = "Jugar de Nuevo"
+
+[node name="BotonSalirMenu" type="Button" parent="GameOverPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_a6r0j")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_nglrl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6hf5g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wc15g")
+text = "Salir al Menú
+"
+script = ExtResource("1_k5p3i")
+
+[node name="s" type="Label" parent="GameOverPanel"]
+offset_left = 400.0
+offset_top = 172.0
+offset_right = 528.0
+offset_bottom = 206.0
+theme_override_fonts/font = ExtResource("2_a6r0j")
+theme_override_font_sizes/font_size = 35
+text = "Segundos"
 
 [node name="ResultTable" type="Label" parent="."]
 anchors_preset = 8
@@ -56,16 +93,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -133.5
-offset_top = -86.0
-offset_right = 133.5
-offset_bottom = -63.0
+offset_left = -164.0
+offset_top = -240.0
+offset_right = 147.0
+offset_bottom = -132.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("2_a6r0j")
-theme_override_font_sizes/font_size = 50
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_7s7hr")
 text = "GAME OVER!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[connection signal="pressed" from="GameOverPanel/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonSalirEscritorio" to="GameOverPanel/HBoxContainer/BotonSalirMenu" method="_on_boton_salir_escritorio_pressed"]
+[connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonSalirMenu" to="GameOverPanel/HBoxContainer/BotonSalirMenu" method="_on_pressed"]

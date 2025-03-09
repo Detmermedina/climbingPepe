@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cbdkc5138thfr"]
 
-[ext_resource type="Script" uid="uid://1behr32u7d05" path="res://paneles/panel_esc/panel_esc.gd" id="1_bixba"]
+[ext_resource type="Script" path="res://paneles/panel_esc/panel_esc.gd" id="1_bixba"]
 [ext_resource type="FontFile" uid="uid://bidivll5qqrk" path="res://paneles/MaldiniBold.ttf" id="1_xueke"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v5n2o"]
