@@ -12,6 +12,9 @@ func _ready():
 func _set_window_size() -> void:
 	var window_size = Vector2(650, 648)
 	get_tree().root.set_size(window_size)
+	
+	DisplayServer.window_set_flag(DisplayServer.WINDOW_FLAG_RESIZE_DISABLED, true)
+	
 	var screen_size = Vector2(DisplayServer.screen_get_size())  
 	var position = (screen_size - window_size) / 2
 	DisplayServer.window_set_position(position)
