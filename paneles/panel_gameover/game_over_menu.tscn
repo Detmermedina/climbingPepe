@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://y4ac5tstlwul"]
 
-[ext_resource type="Script" path="res://paneles/panel_gameover/game_over_menu.gd" id="1_k5p3i"]
+[ext_resource type="Script" uid="uid://dg5d5an8r06hc" path="res://paneles/panel_gameover/game_over_menu.gd" id="1_k5p3i"]
 [ext_resource type="FontFile" uid="uid://bidivll5qqrk" path="res://paneles/MaldiniBold.ttf" id="2_a6r0j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6wats"]
