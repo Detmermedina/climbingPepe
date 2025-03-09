@@ -5,9 +5,16 @@ var time_elapsed: int = 0  # Variable para almacenar el tiempo transcurrido
 func _ready():
 	pass # Replace with function body.
 	# Establecer el tamaño de la ventana en el nivel 1
-	get_tree().root.set_size(Vector2(650, 648))
+	call_deferred("_set_window_size")
 	$Timer.start()  # Iniciar el Timer al comienzo
 	update_label()  # Actualizar la pantalla inicialmente
+
+func _set_window_size() -> void:
+	var window_size = Vector2(650, 648)
+	get_tree().root.set_size(window_size)
+	var screen_size = Vector2(DisplayServer.screen_get_size())  
+	var position = (screen_size - window_size) / 2
+	DisplayServer.window_set_position(position)
 
 func update_label():
 	$Label.text = "Tiempo: " + str(time_elapsed)  # Mostrar el tiempo en pantalla

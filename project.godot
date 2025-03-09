@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Proyecto Juego"
-run/main_scene="res://mapa/nivel1/nivel1.tscn"
+run/main_scene="C:/Users/Rubén/Documents/BACKUP/Instituto/GRADO SUPERIOR/2 GRADO SUPERIOR/PSP/2º Trimestre/climbingPepe/paneles/panel_menuprincipal/menu_principal.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 

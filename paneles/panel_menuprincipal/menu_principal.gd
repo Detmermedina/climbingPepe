@@ -3,8 +3,17 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-	get_tree().root.set_size(Vector2(1150, 600))
+	call_deferred("_set_window_size")
+	
+
+func _set_window_size() -> void:
+	var window_size = Vector2(1150, 600)
+	get_tree().root.set_size(window_size)
+	var screen_size = Vector2(DisplayServer.screen_get_size()) 
+	var position = (screen_size - window_size) / 2
+	DisplayServer.window_set_position(position)
+	
+
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

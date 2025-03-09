@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cyuwr6g7y25y1"]
+[gd_scene load_steps=21 format=3 uid="uid://cx3j351r4stoq"]
 
 [ext_resource type="Script" path="res://mapa/nivel1/nivel_1.gd" id="1_gy034"]
 [ext_resource type="Texture2D" uid="uid://cjwjrvwxkqnvg" path="res://mapa/res/background1.png" id="2_1pxf6"]
@@ -1838,13 +1838,11 @@ texture = ExtResource("3_s6qbj")
 29:63/0 = 0
 10:37/0 = 0
 25:16/0 = 0
-28:10/0 = 0
-32:16/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_4ovqp"]
 custom_data_layer_0/name = "Agarres"
 custom_data_layer_0/type = 1
-sources/0 = SubResource("TileSetAtlasSource_4br0r")
+sources/69 = SubResource("TileSetAtlasSource_4br0r")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d1j2d"]
 texture = ExtResource("5_fcjs8")
