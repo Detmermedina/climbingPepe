@@ -21,6 +21,7 @@ bg_color = Color(0, 0.572549, 0.631373, 1)
 bg_color = Color(0, 0.611765, 0.172549, 1)
 
 [node name="PanelDerrota" type="CanvasLayer"]
+script = ExtResource("1_k5p3i")
 
 [node name="GameOverPanel" type="Panel" parent="."]
 offset_left = 1.0
@@ -49,26 +50,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_7s7hr")
 text = "GAME OVER!"
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Valor" type="Label" parent="GameOverPanel"]
-layout_mode = 0
-offset_left = 311.0
-offset_top = 164.0
-offset_right = 361.0
-offset_bottom = 198.0
-theme_override_fonts/font = ExtResource("2_a6r0j")
-theme_override_font_sizes/font_size = 35
-text = "34"
-
-[node name="HighScore" type="Label" parent="GameOverPanel"]
-layout_mode = 0
-offset_left = 152.0
-offset_top = 151.0
-offset_right = 295.0
-offset_bottom = 198.0
-theme_override_fonts/font = ExtResource("2_a6r0j")
-theme_override_font_sizes/font_size = 35
-text = "HighScore:"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="GameOverPanel"]
 layout_mode = 1
@@ -102,15 +83,14 @@ text = "Salir al Menú
 "
 script = ExtResource("1_k5p3i")
 
-[node name="s" type="Label" parent="GameOverPanel"]
-layout_mode = 0
-offset_left = 359.0
-offset_top = 162.0
-offset_right = 487.0
-offset_bottom = 196.0
+[node name="HighScore" type="Label" parent="."]
+offset_left = 153.0
+offset_top = 266.0
+offset_right = 423.0
+offset_bottom = 313.0
 theme_override_fonts/font = ExtResource("2_a6r0j")
 theme_override_font_sizes/font_size = 35
-text = "Segundos"
+text = "Tiempo jugado:"
 
 [connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonJugar" to="GameOverPanel/HBoxContainer/BotonJugar" method="_on_pressed_jugar"]
 [connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonSalirMenu" to="GameOverPanel/HBoxContainer/BotonJugar" method="_on_boton_salir_menu_pressed"]

@@ -5128,5 +5128,14 @@ script = ExtResource("7_bnine")
 position = Vector2(331, 629)
 shape = SubResource("RectangleShape2D_0embn")
 
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+offset_right = 173.0
+offset_bottom = 55.0
+text = "Tiempo: "
+
 [connection signal="body_entered" from="Meta" to="Meta" method="_on_body_entered"]
 [connection signal="body_entered" from="SueloGameOver" to="SueloGameOver" method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
