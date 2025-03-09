@@ -284,10 +284,10 @@ rest = Transform2D(1, 0, 0, 1, -95, 1)
 
 [node name="Saludo" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_vuanc")
+&"": SubResource("AnimationLibrary_vuanc")
 }
 
 [node name="Celebrar" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_bl4ss")
+&"": SubResource("AnimationLibrary_bl4ss")
 }

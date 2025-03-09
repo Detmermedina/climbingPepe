@@ -7,12 +7,16 @@ extends Node2D
 
 @onready var antebrazo_izq = $container/cuerpo/AnteBrazoIzq  
 @export var textura_normal_izq: Texture2D = preload("res://assets/pepe/AnteBrazoIZQ.png")
-@export var textura_agarrando_izq: Texture2D = preload("res://assets/pepe/AntebrazoCerradoIZQ.png")
+@export var textura_agarrando_izq: Texture2D = preload("res://assets/pepe/AnteBrazoCerradoIZQ.png")
 
 # Parámetros de movimiento
 @export var speed: float = 5000.0  
 @onready var mano_izq = $"IK targets/ManoIZQ_target"
 @onready var mano_der = $"IK targets/ManoDER_target"
+@onready var cuerpo = $"container/cuerpo"  # Nodo del cuerpo
+
+# Velocidad de seguimiento del cuerpo
+var velocidad_cuerpo = 5.0  
 
 # Variables de Tweens
 var tween_izq: Tween
@@ -23,13 +27,12 @@ var agarrado_izq = false
 var agarrado_der = false
 
 # Distancia máxima permitida entre el hombro y el target (ajusta según el tamaño del personaje)
-const MAX_DISTANCIA = 43.0  # Ajusta este valor según necesites
+const MAX_DISTANCIA = 43.0  
 
-# Referencia al TileMap (Asegúrate de que el nombre es correcto en la jerarquía)
-@onready var tilemap = get_node("/root/Nivel1/Fondo/TileMap2(rocas)")  # Ajusta si es necesario
+# Referencia al TileMap
+@onready var tilemap = get_node("/root/Nivel1/Fondo/TileMap2(rocas)")  
 
 func _ready():
-	# Verificar si los nodos existen
 	if not mano_izq:
 		print("Error: No se encontró ManoIZQ_target")
 	if not mano_der:
@@ -37,35 +40,28 @@ func _ready():
 	if not tilemap:
 		print("Error: No se encontró el TileMap2(rocas)")
 
-	# Crear tweens después de que el nodo esté listo
 	tween_izq = create_tween()
 	tween_der = create_tween()
-
-	# Crear indicadores visuales para los targets
 	crear_indicador(mano_izq)
 	crear_indicador(mano_der)
 
 func crear_indicador(target):
 	if target:
 		var indicador = Sprite2D.new()
-		indicador.texture = load("res://icon.svg")  # Usa una textura o círculo
-		indicador.modulate = Color(0, 1, 0)  # Verde
-		indicador.scale = Vector2(0.2, 0.2)  # Tamaño más pequeño
+		indicador.texture = load("res://icon.svg")  
+		indicador.modulate = Color(0, 1, 0)  
+		indicador.scale = Vector2(0.2, 0.2)  
 		target.add_child(indicador)
-		
-		
 
 func _process(delta):
-	# Obtener los nodos de los hombros
-	var hombro_izq = get_node_or_null("container/huesos/Skeleton2D/HuesoCuerpo/Cuello/HombroIZQ")
-	var hombro_der = get_node_or_null("container/huesos/Skeleton2D/HuesoCuerpo/Cuello/HombroDER")
+	# Obtener los nodos de los hombros con la nueva jerarquía
+	var hombro_izq = get_node_or_null("container/cuerpo/huesos/Skeleton2D/HuesoCuerpo/Cuello/HombroIZQ")
+	var hombro_der = get_node_or_null("container/cuerpo/huesos/Skeleton2D/HuesoCuerpo/Cuello/HombroDER")
 
-	# Si alguno de los hombros no existe, salir del proceso para evitar errores
 	if not hombro_izq or not hombro_der:
 		print("⚠️ Error: No se encontró HombroIZQ o HombroDER en la jerarquía")
 		return  
 
-	# Obtener las posiciones de los hombros
 	var hombro_izq_pos = hombro_izq.global_position
 	var hombro_der_pos = hombro_der.global_position
 
@@ -74,18 +70,35 @@ func _process(delta):
 	if direccion_izq.length() > MAX_DISTANCIA:
 		mano_izq.global_position = hombro_izq_pos + direccion_izq.normalized() * MAX_DISTANCIA
 
-# Restricción circular para el target derecho
+	# Restricción circular para el target derecho
 	var direccion_der = (mano_der.global_position - hombro_der_pos)
 	if direccion_der.length() > MAX_DISTANCIA:
 		mano_der.global_position = hombro_der_pos + direccion_der.normalized() * MAX_DISTANCIA
-	
-	
-	# Detectar cuando se presiona la acción "agarrar_der" o "agarrar_izq"
+
+	# 📌 NUEVA MECÁNICA: Solo moverse si está agarrado
+	if agarrado_izq or agarrado_der:
+		# El cuerpo sigue a las manos solo si está agarrado
+		var punto_objetivo = (mano_izq.global_position + mano_der.global_position) / 2
+		cuerpo.global_position = cuerpo.global_position.lerp(punto_objetivo, velocidad_cuerpo * delta)
+
+		# 📌 Hacer que los hombros sigan a las manos
+		hombro_izq.global_position = mano_izq.global_position + Vector2(10, 10)  # Ajusta valores según sea necesario
+		hombro_der.global_position = mano_der.global_position + Vector2(-10, 10)  # Ajusta valores según sea necesario
+	else:
+		# 📌 Si no está agarrado, el personaje cae
+		cuerpo.velocity.y += 500 * delta  # Simula gravedad
+		cuerpo.move_and_slide()  # Evita atravesar el suelo
+
+	# 🔥 BONUS: Inclinación del cuerpo según la diferencia de altura
+	var inclinacion = mano_der.global_position.y - mano_izq.global_position.y
+	cuerpo.rotation = lerp(cuerpo.rotation, inclinacion * 0.01, delta * velocidad_cuerpo)
+
+	# Sistema de agarre
 	if Input.is_action_pressed("agarrar_der") and es_tile_de_agarre(mano_der.global_position):
 		agarrado_der = true
 	elif Input.is_action_just_released("agarrar_der"):
 		agarrado_der = false
-	
+
 	if Input.is_action_pressed("agarrar_izq") and es_tile_de_agarre(mano_izq.global_position):
 		agarrado_izq = true
 	elif Input.is_action_just_released("agarrar_izq"):
@@ -98,7 +111,6 @@ func _process(delta):
 	var move_izq = Vector2.ZERO
 	var move_der = Vector2.ZERO
 
-	# Movimiento si no está agarrado
 	if not agarrado_izq:
 		if Input.is_action_pressed("move_up_izq"):
 			move_izq.y -= 1
@@ -119,13 +131,11 @@ func _process(delta):
 		if Input.is_action_pressed("move_down_der"):
 			move_der.y += 1
 
-	# Normalizar para evitar movimientos más rápidos en diagonal
 	if move_izq.length() > 0:
 		move_izq = move_izq.normalized() * speed * delta
 	if move_der.length() > 0:
 		move_der = move_der.normalized() * speed * delta
 
-	# Verificar si los tweens existen antes de llamar is_running()
 	if tween_izq and tween_izq.is_running():
 		tween_izq.kill()
 	tween_izq = create_tween()
@@ -134,31 +144,27 @@ func _process(delta):
 		tween_der.kill()
 	tween_der = create_tween()
 
-	# Aplicar interpolación con Tween
 	tween_izq.tween_property(mano_izq, "position", mano_izq.position + move_izq, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 	tween_der.tween_property(mano_der, "position", mano_der.position + move_der, 0.1).set_trans(Tween.TRANS_LINEAR).set_ease(Tween.EASE_OUT)
 
-	queue_redraw()  # Para actualizar el dibujo de los círculos
+	queue_redraw() 
 
 func _draw():
-	# Dibuja un círculo verde en los targets de las manos
 	if mano_izq:
 		draw_circle(mano_izq.position, 10, Color(0, 1, 0))
 	if mano_der:
 		draw_circle(mano_der.position, 10, Color(0, 1, 0))
 
-# Función para verificar si un tile es de agarre
 func es_tile_de_agarre(posicion_global):
 	if not tilemap:
 		print("Error: No se encontró el TileMap2(rocas)")
 		return false
 	
-	var tile_pos = tilemap.local_to_map(posicion_global)  # Convertir la posición global a coordenadas del TileMap
+	var tile_pos = tilemap.local_to_map(posicion_global)
 	
-	# Revisar todas las capas del TileMap en busca del tile de agarre
 	for layer in range(tilemap.get_layers_count()):
 		var tile_data = tilemap.get_cell_tile_data(layer, tile_pos)
 		if tile_data and tile_data.get_custom_data("Agarres") == true:
-			return true  # Es un tile de agarre
+			return true  
 
 	return false
