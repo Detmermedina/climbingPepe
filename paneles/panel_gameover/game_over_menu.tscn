@@ -106,4 +106,5 @@ text = "GAME OVER!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonSalirEscritorio" to="GameOverPanel/HBoxContainer/BotonSalirMenu" method="_on_boton_salir_escritorio_pressed"]
 [connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonSalirMenu" to="GameOverPanel/HBoxContainer/BotonSalirMenu" method="_on_pressed"]
