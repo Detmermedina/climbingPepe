@@ -79,8 +79,7 @@ theme_override_font_sizes/font_size = 50
 theme_override_styles/hover = SubResource("StyleBoxFlat_nglrl")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_6hf5g")
 theme_override_styles/normal = SubResource("StyleBoxFlat_wc15g")
-text = "Salir al Menú
-"
+text = "Salir al Menú"
 script = ExtResource("1_k5p3i")
 
 [node name="HighScore" type="Label" parent="."]

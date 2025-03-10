@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhgrxltqhjd7g"]
+
+[ext_resource type="Script" path="res://paneles/panel_gameover_nivel2/derrota_n_2.gd" id="1_bt51u"]
+[ext_resource type="FontFile" uid="uid://bidivll5qqrk" path="res://paneles/MaldiniBold.ttf" id="2_yn2ft"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jewv8"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 1)
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwqxo"]
+bg_color = Color(0, 0, 0, 0)
+
+[node name="DerrotaN2" type="CanvasLayer"]
+script = ExtResource("1_bt51u")
+
+[node name="GameOverPanel" type="Panel" parent="."]
+offset_left = 1.0
+offset_top = 115.0
+offset_right = 635.0
+offset_bottom = 528.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jewv8")
+
+[node name="ResultTable" type="Label" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.0
+offset_top = -222.0
+offset_right = 180.0
+offset_bottom = -114.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_yn2ft")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_jwqxo")
+text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="GameOverPanel"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.14
+offset_left = 1.0
+offset_top = 282.0
+offset_right = 550.28
+offset_bottom = 330.0
+grow_vertical = 0
+alignment = 1
+
+[node name="VolverMenu" type="Button" parent="GameOverPanel/HBoxContainer"]
+layout_mode = 2
+text = "Salir al Menú"
+
+[node name="JugarDeNuevo" type="Button" parent="GameOverPanel/HBoxContainer"]
+layout_mode = 2
+text = "Jugar de Nuevo"
+
+[node name="Score" type="Label" parent="."]
+offset_left = 172.0
+offset_top = 295.0
+offset_right = 488.0
+offset_bottom = 318.0
+text = "Piedras agarradas: 0"
+
+[connection signal="pressed" from="GameOverPanel/HBoxContainer/VolverMenu" to="." method="_on_volver_menu_pressed"]
+[connection signal="pressed" from="GameOverPanel/HBoxContainer/JugarDeNuevo" to="." method="_on_jugar_de_nuevo_pressed"]

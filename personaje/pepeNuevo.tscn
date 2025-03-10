@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://ct8vy087n4v6y"]
 
 [ext_resource type="Texture2D" uid="uid://fgdtlpry732c" path="res://assets/pepe/brazoDER.png" id="1_kcx11"]
-[ext_resource type="Script" uid="uid://b2385pici04iu" path="res://personaje/pepe_nuevo.gd" id="1_toxys"]
+[ext_resource type="Script" path="res://personaje/pepe_nuevo.gd" id="1_toxys"]
 [ext_resource type="Texture2D" uid="uid://cgisqiiqpx2w1" path="res://assets/pepe/AnteBrazoDER.png" id="2_bisvp"]
 [ext_resource type="Texture2D" uid="uid://biinc6x77cimt" path="res://assets/pepe/brazoIZQ.png" id="3_ftlgj"]
 [ext_resource type="Texture2D" uid="uid://cv784hcnomljs" path="res://assets/pepe/AnteBrazoIZQ.png" id="4_2p8ox"]
@@ -74,7 +74,6 @@ script = ExtResource("1_toxys")
 [node name="BrazoDer" type="Sprite2D" parent="container/cuerpo"]
 position = Vector2(58.9305, -33.192)
 rotation = -0.590508
-scale = Vector2(1, 1)
 texture = ExtResource("1_kcx11")
 offset = Vector2(46, 0)
 
@@ -88,14 +87,12 @@ offset = Vector2(69, -7)
 [node name="BrazoIzq" type="Sprite2D" parent="container/cuerpo"]
 position = Vector2(-59.0695, -33.192)
 rotation = 0.390478
-scale = Vector2(1, 1)
 texture = ExtResource("3_ftlgj")
 offset = Vector2(-47, 0)
 
 [node name="AnteBrazoIzq" type="Sprite2D" parent="container/cuerpo"]
 position = Vector2(-144.082, -64.805)
 rotation = 0.83582
-scale = Vector2(1, 1)
 texture = ExtResource("4_2p8ox")
 offset = Vector2(-65, -7)
 
