@@ -62,16 +62,6 @@ offset_bottom = 330.0
 grow_vertical = 0
 alignment = 1
 
-[node name="BotonJugar" type="Button" parent="GameOverPanel/HBoxContainer"]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("2_a6r0j")
-theme_override_font_sizes/font_size = 50
-theme_override_styles/hover = SubResource("StyleBoxFlat_nglrl")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6hf5g")
-theme_override_styles/normal = SubResource("StyleBoxFlat_wc15g")
-text = "Jugar de Nuevo"
-script = ExtResource("1_k5p3i")
-
 [node name="BotonSalirMenu" type="Button" parent="GameOverPanel/HBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_a6r0j")
@@ -80,6 +70,16 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_nglrl")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_6hf5g")
 theme_override_styles/normal = SubResource("StyleBoxFlat_wc15g")
 text = "Salir al Menú"
+script = ExtResource("1_k5p3i")
+
+[node name="BotonJugar" type="Button" parent="GameOverPanel/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_a6r0j")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_nglrl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6hf5g")
+theme_override_styles/normal = SubResource("StyleBoxFlat_wc15g")
+text = "Jugar de Nuevo"
 script = ExtResource("1_k5p3i")
 
 [node name="HighScore" type="Label" parent="."]
@@ -91,6 +91,6 @@ theme_override_fonts/font = ExtResource("2_a6r0j")
 theme_override_font_sizes/font_size = 35
 text = "Tiempo jugado:"
 
-[connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonJugar" to="GameOverPanel/HBoxContainer/BotonJugar" method="_on_pressed_jugar"]
 [connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonSalirMenu" to="GameOverPanel/HBoxContainer/BotonJugar" method="_on_boton_salir_menu_pressed"]
 [connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonSalirMenu" to="GameOverPanel/HBoxContainer/BotonSalirMenu" method="_on_pressed"]
+[connection signal="pressed" from="GameOverPanel/HBoxContainer/BotonJugar" to="GameOverPanel/HBoxContainer/BotonJugar" method="_on_pressed_jugar"]
