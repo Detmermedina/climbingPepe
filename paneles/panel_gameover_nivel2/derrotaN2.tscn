@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bhgrxltqhjd7g"]
+[gd_scene load_steps=9 format=3 uid="uid://bhgrxltqhjd7g"]
 
 [ext_resource type="Script" path="res://paneles/panel_gameover_nivel2/derrota_n_2.gd" id="1_bt51u"]
 [ext_resource type="FontFile" uid="uid://bidivll5qqrk" path="res://paneles/MaldiniBold.ttf" id="2_yn2ft"]
@@ -10,6 +10,16 @@ shadow_offset = Vector2(10, 10)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jwqxo"]
 bg_color = Color(0, 0, 0, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lau3p"]
+bg_color = Color(0, 0.611765, 0.172549, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cdox"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvetx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rmo3o"]
+bg_color = Color(0, 0.611765, 0.172549, 1)
 
 [node name="DerrotaN2" type="CanvasLayer"]
 script = ExtResource("1_bt51u")
@@ -55,10 +65,18 @@ alignment = 1
 
 [node name="VolverMenu" type="Button" parent="GameOverPanel/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yn2ft")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_lau3p")
 text = "Salir al Menú"
 
 [node name="JugarDeNuevo" type="Button" parent="GameOverPanel/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_yn2ft")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/hover = SubResource("StyleBoxFlat_2cdox")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cvetx")
+theme_override_styles/normal = SubResource("StyleBoxFlat_rmo3o")
 text = "Jugar de Nuevo"
 
 [node name="Score" type="Label" parent="."]
@@ -66,6 +84,8 @@ offset_left = 172.0
 offset_top = 295.0
 offset_right = 488.0
 offset_bottom = 318.0
+theme_override_fonts/font = ExtResource("2_yn2ft")
+theme_override_font_sizes/font_size = 35
 text = "Piedras agarradas: 0"
 
 [connection signal="pressed" from="GameOverPanel/HBoxContainer/VolverMenu" to="." method="_on_volver_menu_pressed"]
